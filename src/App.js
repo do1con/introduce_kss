@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import mainImage from "./media/mainImage.jpg";
 import styled from "styled-components";
 import Header from "./components/Header";
@@ -6,25 +6,39 @@ import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
 
 function App() {
-  const mainHome = useRef();
-  const [BrowserHeight, setBrowserHeight] = useState(0);
+  const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
+  const [HeaderPosition, setHeaderPosition] = useState(false);
+
 
   const onResizeBrowser = () => {
-    setBrowserHeight(mainHome.current.clientHeight);
+    setBrowserHeight(window.innerHeight);
+  };
+  const onScrollBrowser = () => {
+    if(BrowserHeight < window.scrollY + 100) {
+      setHeaderPosition(true);
+    } else {
+      setHeaderPosition(false);
+    }
   };
 
   useEffect(() => {
-    console.log("height", mainHome.current.clientHeight);
     window.addEventListener("resize", onResizeBrowser);
-  }, []);
+    window.addEventListener("scroll", onScrollBrowser);
+    return (() => {
+      window.removeEventListener("resize", onResizeBrowser);
+      window.removeEventListener("scroll", onScrollBrowser);
+    });
+  });
 
   useEffect(() => {
-    console.log("height", BrowserHeight);
-  });
+    onResizeBrowser();
+    onScrollBrowser();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="App">
-      <MainImageBlock ref={mainHome}>
+      <MainImageBlock>
         <div
           style={{
             width: "80%",
@@ -46,14 +60,15 @@ function App() {
               padding: "10px 0 10px 0",
               wordBreak: "keep-all",
               fontWeight: "bold",
-              overflow: "hidden",
+              overflowY: "hidden",
             }}
             speed={100}
             eraseSpeed={100}
             eraseDelay={650}
           />
         </div>
-        <Header />
+        <h1>{BrowserHeight}</h1>{BrowserHeight}
+        <Header HeaderPosition={HeaderPosition} />
       </MainImageBlock>
       <AboutMe />
     </div>
