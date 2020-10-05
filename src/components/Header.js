@@ -14,7 +14,7 @@ function Header(props) {
 }
 
 const HeaderContainer = styled.div`
-width: 100%;
+width: 100vw;
 height: 100px;
 background-color: rgba(0, 0, 0, 0.3);
 margin-bottom: 0px;
@@ -24,12 +24,6 @@ top: 0;` : css`
   position: absolute;
   bottom: 0;` 
   };
-${props => console.log("내가진짜", props)}
-${props => props.HeaderPosition ? (() => {
-  console.log('트루ㅠ야')
-}) : (() => {
-  console.log('뽈스야')
-})}
 `;
 
 const MenuWrapper = styled.a`
