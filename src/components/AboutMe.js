@@ -4,7 +4,8 @@ import styled from "styled-components";
 function AboutMe() {
   return (
     <AboutMeWrapper>
-      <h2>About Me</h2>
+      <AboutMeTitle>About Me</AboutMeTitle>
+      <hr/>
       <p>elrghjsaekilrgujaelrkiughjase</p>
       <p>elrghjsaekilrgujaelrkiughjase</p>
       <p>elrghjsaekilrgujaelrkiughjase</p>
@@ -123,6 +124,11 @@ const AboutMeWrapper = styled.div`
   width: 80%;
   padding: 40px;
   margin: 0 auto;
+`;
+
+const AboutMeTitle = styled.h2`
+  text-align: center;
+  font-size: 1.1rem;
 `;
 
 export default AboutMe

@@ -7,14 +7,22 @@ import AboutMe from "./components/AboutMe";
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
+  const [BrowserWidth, setBrowserWidth] = useState(window.innerWidth);
   const [HeaderPosition, setHeaderPosition] = useState(false);
+  const [ResponsiveState, setResponsiveState] = useState(false);
 
 
   const onResizeBrowser = () => {
     setBrowserHeight(window.innerHeight);
+    setBrowserWidth(window.innerWidth);
+    if(BrowserWidth <= 650) {
+      setResponsiveState(true);
+    } else {
+      setResponsiveState(false);
+    }
   };
   const onScrollBrowser = () => {
-    if(BrowserHeight < window.scrollY + 100) {
+    if(BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
       setHeaderPosition(false);
@@ -63,12 +71,11 @@ function App() {
               overflowY: "hidden",
             }}
             speed={100}
-            eraseSpeed={100}
+            eraseSpeed={70}
             eraseDelay={650}
           />
         </div>
-        <h1>{BrowserHeight}</h1>{BrowserHeight}
-        <Header HeaderPosition={HeaderPosition} />
+        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} />
       </MainImageBlock>
       <AboutMe />
     </div>

@@ -1,50 +1,60 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import Menu from "./Menu";
 
 function Header(props) {
+  React.useEffect(() => {
+    console.log("리스폰시브 시작", props.ResponsiveState);
+  }, [props.ResponsiveState]);
+
   return (
     <HeaderContainer HeaderPosition={props.HeaderPosition}>
       <div style={{ width: "80%", height: "100%", margin: "0 auto" }}>
-        <MenuWrapper>
-          <Menu>Home</Menu>
-        </MenuWrapper>
+        {props.ResponsiveState ? (
+          "멍미,"
+        ) : (
+          <MenuWrapper>
+            <Menu title={"Home"} />
+            <Menu title={"About Me"} />
+            <Menu title={"Projects"} />
+            <Menu title={"Contact"} />
+          </MenuWrapper>
+        )}
       </div>
     </HeaderContainer>
   );
 }
 
 const HeaderContainer = styled.div`
-width: 100vw;
-height: 100px;
-background-color: rgba(0, 0, 0, 0.3);
-margin-bottom: 0px;
-${props => props.HeaderPosition ? css`
-position: fixed;
-top: 0;` : css`
-  position: absolute;
-  bottom: 0;` 
-  };
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 0px;
+  border-bottom: 2px solid #04c2c9;
+  transition: background-color 400ms;
+  ${(props) =>
+    props.HeaderPosition
+      ? css`
+          position: fixed;
+          top: 0;
+          background-color: #1b242f;
+        `
+      : css`
+          position: absolute;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+        `};
 `;
 
-const MenuWrapper = styled.a`
-width: 200px;
-height: 100px;
-font-color: white;
-cursor: pointer;
-display: table;
+const MenuWrapper = styled.div`
+  width: 100%;
+  height: 50px;
+  font-color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
-
-const Menu = styled.h2`
-display: table-cell;
-text-align: center;
-vertical-align: middle;
-color: white;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-font-size: 30px;
-font-weight: 100;
-`;
-
 
 export default Header;
