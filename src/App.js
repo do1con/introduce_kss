@@ -27,6 +27,14 @@ function App() {
       setBrowserWidth(window.innerWidth);
     }
   };
+
+  const onClickMenu = (scrollTarget) => {
+    if(scrollTarget === "Home") home.current.scrollIntoView({ behavior: "smooth" });
+    if(scrollTarget === "About Me") aboutMe.current.scrollIntoView({ behavior: "smooth" });
+    if(scrollTarget === "Projects") projects.current.scrollIntoView({ behavior: "smooth" });
+    if(scrollTarget === "Contact") contact.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   const onScrollBrowser = () => {
     const aboutMeoffsetTop = aboutMe.current.offsetTop;
     if(BrowserHeight < window.scrollY + 50) {
@@ -88,7 +96,7 @@ function App() {
             eraseDelay={650}
           />
         </div>
-        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} />
+        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
       </MainImageBlock>
       <div ref={aboutMe}>
         <AboutMe />

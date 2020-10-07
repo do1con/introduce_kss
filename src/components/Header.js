@@ -13,10 +13,10 @@ function Header(props) {
         </MenuWrapper>
         ) : (
         <MenuWrapper ResponsiveState={props.ResponsiveState}>
-          <Menu title={"Home"} focus={props.ScrollPosition === "home" ? true : false } />
-          <Menu title={"About Me"} focus={props.ScrollPosition === "aboutMe" ? true : false } />
-          <Menu title={"Projects"} focus={props.ScrollPosition === "projects" ? true : false } />
-          <Menu title={"Contact"} focus={props.ScrollPosition === "contact" ? true : false } />
+          <Menu title={"Home"} focus={props.ScrollPosition === "home" ? true : false } onClickMenu={props.onClickMenu}/>
+          <Menu title={"About Me"} focus={props.ScrollPosition === "aboutMe" ? true : false } onClickMenu={props.onClickMenu} />
+          <Menu title={"Projects"} focus={props.ScrollPosition === "projects" ? true : false } onClickMenu={props.onClickMenu} />
+          <Menu title={"Contact"} focus={props.ScrollPosition === "contact" ? true : false } onClickMenu={props.onClickMenu} />
         </MenuWrapper>
         )}
       </div>

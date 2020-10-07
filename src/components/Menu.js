@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 function Menu(props) {
   return (
-    <MenuContainer Focus={props.focus}>
+    <MenuContainer Focus={props.focus} onClick={()=>props.onClickMenu(props.title)}>
       {props.title}
     </MenuContainer>
   )
