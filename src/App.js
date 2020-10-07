@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import mainImage from "./media/mainImage.jpg";
 import styled from "styled-components";
 import Header from "./components/Header";
@@ -10,22 +10,35 @@ function App() {
   const [BrowserWidth, setBrowserWidth] = useState(window.innerWidth);
   const [HeaderPosition, setHeaderPosition] = useState(false);
   const [ResponsiveState, setResponsiveState] = useState(false);
-
+  const [ScrollPosition, setScrollPosition] = useState("home");
+  const home = useRef();
+  const aboutMe = useRef();
+  const projects = useRef();
+  const contact = useRef();
 
   const onResizeBrowser = () => {
-    setBrowserHeight(window.innerHeight);
-    setBrowserWidth(window.innerWidth);
-    if(BrowserWidth <= 650) {
+    if(window.innerWidth <= 800) {
       setResponsiveState(true);
+      setBrowserHeight(window.innerHeight);
+      setBrowserWidth(window.innerWidth);
     } else {
       setResponsiveState(false);
+      setBrowserHeight(window.innerHeight);
+      setBrowserWidth(window.innerWidth);
     }
   };
   const onScrollBrowser = () => {
+    const aboutMeoffsetTop = aboutMe.current.offsetTop;
     if(BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
       setHeaderPosition(false);
+    }
+    if(window.scrollY >= 0 && window.scrollY <= aboutMeoffsetTop){
+      setScrollPosition("home");
+    }
+    if(window.scrollY >= aboutMeoffsetTop){
+      setScrollPosition("aboutMe");
     }
   };
 
@@ -46,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <MainImageBlock>
+      <MainImageBlock ref={home}>
         <div
           style={{
             width: "80%",
@@ -75,9 +88,11 @@ function App() {
             eraseDelay={650}
           />
         </div>
-        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} />
+        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} />
       </MainImageBlock>
-      <AboutMe />
+      <div ref={aboutMe}>
+        <AboutMe />
+      </div>
     </div>
   );
 }

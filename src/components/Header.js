@@ -4,22 +4,20 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import Menu from "./Menu";
 
 function Header(props) {
-  React.useEffect(() => {
-    console.log("리스폰시브 시작", props.ResponsiveState);
-  }, [props.ResponsiveState]);
-
   return (
     <HeaderContainer HeaderPosition={props.HeaderPosition}>
       <div style={{ width: "80%", height: "100%", margin: "0 auto" }}>
         {props.ResponsiveState ? (
-          "멍미,"
+        <MenuWrapper ResponsiveState={props.ResponsiveState}>
+          <MenuUnfoldOutlined style={{ color: "white", fontSize: "30px", cursor: "pointer" }} />
+        </MenuWrapper>
         ) : (
-          <MenuWrapper>
-            <Menu title={"Home"} />
-            <Menu title={"About Me"} />
-            <Menu title={"Projects"} />
-            <Menu title={"Contact"} />
-          </MenuWrapper>
+        <MenuWrapper ResponsiveState={props.ResponsiveState}>
+          <Menu title={"Home"} focus={props.ScrollPosition === "home" ? true : false } />
+          <Menu title={"About Me"} focus={props.ScrollPosition === "aboutMe" ? true : false } />
+          <Menu title={"Projects"} focus={props.ScrollPosition === "projects" ? true : false } />
+          <Menu title={"Contact"} focus={props.ScrollPosition === "contact" ? true : false } />
+        </MenuWrapper>
         )}
       </div>
     </HeaderContainer>
@@ -35,26 +33,31 @@ const HeaderContainer = styled.div`
   transition: background-color 400ms;
   ${(props) =>
     props.HeaderPosition
-      ? css`
-          position: fixed;
-          top: 0;
-          background-color: #1b242f;
-        `
-      : css`
-          position: absolute;
-          bottom: 0;
-          background-color: rgba(0, 0, 0, 0.5);
-        `};
+    ? css`
+        position: fixed;
+        top: 0;
+        background-color: #1b242f;
+      `
+    : css`
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      `
+  }
 `;
 
 const MenuWrapper = styled.div`
   width: 100%;
   height: 50px;
   font-color: white;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${(props) => 
+    props.ResponsiveState
+    ?
+      css`align-items: center;` : css`align-items: right;`
+  }
 `;
 
 export default Header;
