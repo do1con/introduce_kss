@@ -80,16 +80,16 @@ function App() {
           <ReactTypingEffect
             text={["안녕하세요.", "프론트엔드 개발자를 꿈꾸는 김성수입니다."]}
             style={{
-              fontSize: "30px",
-              color: "white",
+              fontSize: "40px",
+              color: "rgb(43 43 43)",
               display: "table-cell",
               verticalAlign: "middle",
               textAlign: "center",
-              textShadow: "0px 0px 10px #444444",
               padding: "10px 0 10px 0",
               wordBreak: "keep-all",
-              fontWeight: "bold",
               overflowY: "hidden",
+              fontFamily: 'Do Hyeon, sans-serif',
+              fontWeight: '100'
             }}
             speed={100}
             eraseSpeed={70}

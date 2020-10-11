@@ -9,7 +9,7 @@ function Menu(props) {
   )
 }
 
-const MenuContainer = styled.button`
+const MenuContainer = styled.a`
   display: block;
   width: 23%;
   text-align: center;
@@ -24,7 +24,6 @@ const MenuContainer = styled.button`
     color: #04c2c9;
   }
   background: none;
-  border: none;
   cursor: pointer;
   ${(props) =>
     props.Focus
