@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import 'antd/dist/antd.css';
 import mainImage from "./media/mainImage.jpg";
 import styled from "styled-components";
 import Header from "./components/Header";
@@ -42,10 +43,10 @@ function App() {
     } else {
       setHeaderPosition(false);
     }
-    if(window.scrollY >= 0 && window.scrollY <= aboutMeoffsetTop){
+    if(window.scrollY >= 0 && window.scrollY <= aboutMeoffsetTop - (aboutMeoffsetTop - aboutMeoffsetTop/2)){
       setScrollPosition("home");
     }
-    if(window.scrollY >= aboutMeoffsetTop){
+    if(window.scrollY >= aboutMeoffsetTop - (aboutMeoffsetTop - aboutMeoffsetTop/2)){
       setScrollPosition("aboutMe");
     }
   };
@@ -99,7 +100,7 @@ function App() {
         <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
       </MainImageBlock>
       <div ref={aboutMe}>
-        <AboutMe />
+        <AboutMe ScrollPosition={ScrollPosition} />
       </div>
     </div>
   );

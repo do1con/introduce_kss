@@ -31,6 +31,7 @@ const HeaderContainer = styled.div`
   margin-bottom: 0px;
   border-bottom: 2px solid #04c2c9;
   transition: background-color 400ms;
+  z-index: 1;
   ${(props) =>
     props.HeaderPosition
     ? css`
