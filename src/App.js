@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
+import Projects from './components/Projects';
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
@@ -16,6 +17,10 @@ function App() {
   const aboutMe = useRef();
   const projects = useRef();
   const contact = useRef();
+
+  useEffect(() => {
+    console.log("aboutme", aboutMe)
+  });
 
   const onResizeBrowser = () => {
     if(window.innerWidth <= 800) {
@@ -100,7 +105,10 @@ function App() {
         <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
       </MainImageBlock>
       <div ref={aboutMe}>
-        <AboutMe ScrollPosition={ScrollPosition} />
+        <AboutMe ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
+      </div>
+      <div ref={projects}>
+        <Projects ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
       </div>
     </div>
   );
