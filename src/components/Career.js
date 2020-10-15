@@ -4,6 +4,7 @@ import { Motion, spring } from 'react-motion';
 import { RightOutlined} from '@ant-design/icons';
 
 function Career(props) {
+
   return (
     <Motion style={{ marginTop: spring(props.ComponentLoadedState ? 0 : -100, { stiffness: 70 } ), opacity : spring(props.ComponentLoadedState ? 1 : 0, { stiffness: 70 } ) }}>
       {(val) =>

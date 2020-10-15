@@ -13,11 +13,8 @@ import express from '../media/express.png';
 import styled from 'styled-components';
 
 function Skills(props) {
+  
   const { Meta } = Card;
-
-  React.useEffect(() => {
-    console.log("props", props);
-  });
 
   return (
     <div style={{ width: '80%', margin: '0 auto' }}>

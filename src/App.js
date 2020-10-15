@@ -43,6 +43,7 @@ function App() {
   const onScrollBrowser = () => {
     const aboutMeOffsetTop = aboutMe.current.offsetTop;
     const skillsOffsetTop = skills.current.offsetTop;
+    const projectsOffsetTop = projects.current.offsetTop;
     if(BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
@@ -56,6 +57,9 @@ function App() {
     }
     if(window.scrollY >= skillsOffsetTop - 50) {
       setSkillsAnimateState(true);
+    }
+    if(window.scrollY >= projectsOffsetTop - (projectsOffsetTop - projectsOffsetTop/2)) {
+      setScrollPosition("projects");
     }
   };
 
