@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 import { Motion, spring } from 'react-motion';
-import { Row, Col } from "antd";
+import { Row, Col, Divider } from "antd";
 import Profile from './Profile'
 import Career from './Career'
-import Skills from './Skills'
 
 function AboutMe(props) {
   
@@ -28,7 +27,7 @@ function AboutMe(props) {
           </Title>
         }
       </Motion>
-      <hr style={{ width: '50%' }} />
+      <Divider style={{ backgroundColor: '#ababab' }} />
       <Row style={{ marginTop: "50px" }} justify="center">
         <Col xs={24} sm={24} md={24} lg={5} xl={6}>
           <Profile BrowserWidth={props.BrowserWidth} ComponentLoadedState={ComponentLoadedState} />
@@ -37,7 +36,6 @@ function AboutMe(props) {
           <Career BrowserWidth={props.BrowserWidth} ComponentLoadedState={ComponentLoadedState} />
         </Col>
       </Row>
-      <Skills ComponentLoadedState={ComponentLoadedState} />
     </AboutMeWrapper>
   )
 }

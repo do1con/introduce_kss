@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { Motion, spring } from 'react-motion';
 import me from "../media/me.png";
 import { MailTwoTone, PhoneTwoTone, DatabaseTwoTone } from '@ant-design/icons';
+import { Divider } from 'antd';
 
 function Profile(props) {
   return (
@@ -12,7 +13,7 @@ function Profile(props) {
           <MyPicture src={me} alt="me" BrowserWidth={props.BrowserWidth} />
           <ProfileWrapper>
             <p style={{ wordBreak: 'keep-all' }}><ProfileHead>김성수 </ProfileHead> SeongSoo Kim<br/>Web Front-End Developer</p>
-            <hr/>
+            <Divider style={{ backgroundColor: '#ababab' }} />
             <p style={{ wordBreak: 'break-all' }}><MailTwoTone /> kss7547@gmail.com</p>
             <p style={{ wordBreak: 'break-all' }}><PhoneTwoTone /> 010-9902-4851</p>
             <p style={{ wordBreak: 'break-all' }}><DatabaseTwoTone /> https://github.com/do1con</p>

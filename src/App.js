@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
 import Projects from './components/Projects';
+import Skills from './components/Skills';
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
@@ -13,14 +14,12 @@ function App() {
   const [HeaderPosition, setHeaderPosition] = useState(false);
   const [ResponsiveState, setResponsiveState] = useState(false);
   const [ScrollPosition, setScrollPosition] = useState("home");
+  const [SkillsAnimateState, setSkillsAnimateState] = useState(false);
   const home = useRef();
   const aboutMe = useRef();
+  const skills = useRef();
   const projects = useRef();
   const contact = useRef();
-
-  useEffect(() => {
-    console.log("aboutme", aboutMe)
-  });
 
   const onResizeBrowser = () => {
     if(window.innerWidth <= 800) {
@@ -42,17 +41,21 @@ function App() {
   };
 
   const onScrollBrowser = () => {
-    const aboutMeoffsetTop = aboutMe.current.offsetTop;
+    const aboutMeOffsetTop = aboutMe.current.offsetTop;
+    const skillsOffsetTop = skills.current.offsetTop;
     if(BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
       setHeaderPosition(false);
     }
-    if(window.scrollY >= 0 && window.scrollY <= aboutMeoffsetTop - (aboutMeoffsetTop - aboutMeoffsetTop/2)){
+    if(window.scrollY >= 0 && window.scrollY <= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
       setScrollPosition("home");
     }
-    if(window.scrollY >= aboutMeoffsetTop - (aboutMeoffsetTop - aboutMeoffsetTop/2)){
+    if(window.scrollY >= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
       setScrollPosition("aboutMe");
+    }
+    if(window.scrollY >= skillsOffsetTop - 50) {
+      setSkillsAnimateState(true);
     }
   };
 
@@ -106,6 +109,9 @@ function App() {
       </MainImageBlock>
       <div ref={aboutMe}>
         <AboutMe ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
+      </div>
+      <div ref={skills}>
+        <Skills SkillsAnimateState={SkillsAnimateState} />
       </div>
       <div ref={projects}>
         <Projects ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
