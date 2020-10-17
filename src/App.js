@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import 'antd/dist/antd.css';
+import "./reset.css";
+import "antd/dist/antd.css";
 import mainImage from "./media/mainImage.jpg";
 import styled from "styled-components";
 import Header from "./components/Header";
 import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
-import Projects from './components/Projects';
-import Skills from './components/Skills';
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
@@ -20,7 +21,7 @@ function App() {
   const projects = useRef();
 
   const onResizeBrowser = () => {
-    if(window.innerWidth <= 800) {
+    if (window.innerWidth <= 800) {
       setBrowserHeight(window.innerHeight);
       setBrowserWidth(window.innerWidth);
     } else {
@@ -30,32 +31,40 @@ function App() {
   };
 
   const onClickMenu = (scrollTarget) => {
-    if(scrollTarget === "Home") home.current.scrollIntoView({ behavior: "smooth" });
-    if(scrollTarget === "About Me") aboutMe.current.scrollIntoView({ behavior: "smooth" });
-    if(scrollTarget === "Skills") skills.current.scrollIntoView({ behavior: "smooth" });
-    if(scrollTarget === "Projects") projects.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollTarget === "Home")
+      home.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollTarget === "About Me")
+      aboutMe.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollTarget === "Skills")
+      skills.current.scrollIntoView({ behavior: "smooth" });
+    if (scrollTarget === "Projects")
+      projects.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const onScrollBrowser = () => {
     const aboutMeOffsetTop = aboutMe.current.offsetTop;
     const skillsOffsetTop = skills.current.offsetTop;
     const projectsOffsetTop = projects.current.offsetTop;
-    if(BrowserHeight < window.scrollY + 50) {
+    console.log("오프셋!", aboutMeOffsetTop);
+    if (BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
       setHeaderPosition(false);
     }
-    if(window.scrollY >= 0 && window.scrollY <= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
+    if (
+      window.scrollY >= 0 &&
+      window.scrollY <= aboutMeOffsetTop - aboutMeOffsetTop / 2
+    ) {
       setScrollPosition("home");
     }
-    if(window.scrollY >= aboutMeOffsetTop - 150){
+    if (window.scrollY >= aboutMeOffsetTop - aboutMeOffsetTop / 2) {
       setScrollPosition("aboutMe");
     }
-    if(window.scrollY >= skillsOffsetTop - 150) {
+    if (window.scrollY >= skillsOffsetTop - skillsOffsetTop / 4) {
       setSkillsAnimateState(true);
       setScrollPosition("skills");
     }
-    if(window.scrollY >= projectsOffsetTop - 150) {
+    if (window.scrollY >= projectsOffsetTop - projectsOffsetTop / 8) {
       setScrollPosition("projects");
     }
   };
@@ -63,16 +72,16 @@ function App() {
   useEffect(() => {
     window.addEventListener("resize", onResizeBrowser);
     window.addEventListener("scroll", onScrollBrowser);
-    return (() => {
+    return () => {
       window.removeEventListener("resize", onResizeBrowser);
       window.removeEventListener("scroll", onScrollBrowser);
-    });
+    };
   });
 
   useEffect(() => {
     onResizeBrowser();
     onScrollBrowser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -98,21 +107,28 @@ function App() {
               padding: "10px 0 10px 0",
               wordBreak: "keep-all",
               overflowY: "hidden",
-              fontFamily: 'sans-serif',
-              fontWeight: '100'
+              fontFamily: "sans-serif",
+              fontWeight: "100",
             }}
             speed={100}
             eraseSpeed={70}
             eraseDelay={650}
           />
         </div>
-        <Header HeaderPosition={HeaderPosition} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
+        <Header
+          HeaderPosition={HeaderPosition}
+          ScrollPosition={ScrollPosition}
+          onClickMenu={onClickMenu}
+        />
       </MainImageBlock>
       <div ref={aboutMe}>
         <AboutMe ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
       </div>
       <div ref={skills}>
-        <Skills ScrollPosition={ScrollPosition} SkillsAnimateState={SkillsAnimateState} />
+        <Skills
+          ScrollPosition={ScrollPosition}
+          SkillsAnimateState={SkillsAnimateState}
+        />
       </div>
       <div ref={projects}>
         <Projects ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
