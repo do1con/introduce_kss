@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./reset.css";
-import "antd/dist/antd.css";
 import mainImage from "./media/mainImage.jpg";
 import styled from "styled-components";
 import Header from "./components/Header";
-import ReactTypingEffect from "react-typing-effect";
+// import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import "antd/dist/antd.css";
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
@@ -45,7 +44,6 @@ function App() {
     const aboutMeOffsetTop = aboutMe.current.offsetTop;
     const skillsOffsetTop = skills.current.offsetTop;
     const projectsOffsetTop = projects.current.offsetTop;
-    console.log("오프셋!", aboutMeOffsetTop);
     if (BrowserHeight < window.scrollY + 50) {
       setHeaderPosition(true);
     } else {
@@ -96,7 +94,7 @@ function App() {
             overflow: "hidden",
           }}
         >
-          <ReactTypingEffect
+          {/* <ReactTypingEffect
             text={["안녕하세요.", "프론트엔드 개발자를 꿈꾸는 김성수입니다."]}
             style={{
               fontSize: "30px",
@@ -113,7 +111,7 @@ function App() {
             speed={100}
             eraseSpeed={70}
             eraseDelay={650}
-          />
+          /> */}
         </div>
         <Header
           HeaderPosition={HeaderPosition}
