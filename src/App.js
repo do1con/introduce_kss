@@ -19,7 +19,6 @@ function App() {
   const aboutMe = useRef();
   const skills = useRef();
   const projects = useRef();
-  const contact = useRef();
 
   const onResizeBrowser = () => {
     if(window.innerWidth <= 800) {
@@ -36,8 +35,8 @@ function App() {
   const onClickMenu = (scrollTarget) => {
     if(scrollTarget === "Home") home.current.scrollIntoView({ behavior: "smooth" });
     if(scrollTarget === "About Me") aboutMe.current.scrollIntoView({ behavior: "smooth" });
+    if(scrollTarget === "Skills") skills.current.scrollIntoView({ behavior: "smooth" });
     if(scrollTarget === "Projects") projects.current.scrollIntoView({ behavior: "smooth" });
-    if(scrollTarget === "Contact") contact.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const onScrollBrowser = () => {
@@ -52,13 +51,14 @@ function App() {
     if(window.scrollY >= 0 && window.scrollY <= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
       setScrollPosition("home");
     }
-    if(window.scrollY >= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
+    if(window.scrollY >= aboutMeOffsetTop - 100){
       setScrollPosition("aboutMe");
     }
-    if(window.scrollY >= skillsOffsetTop - 50) {
+    if(window.scrollY >= skillsOffsetTop - 100) {
       setSkillsAnimateState(true);
+      setScrollPosition("skills");
     }
-    if(window.scrollY >= projectsOffsetTop - (projectsOffsetTop - projectsOffsetTop/2)) {
+    if(window.scrollY >= projectsOffsetTop - 100) {
       setScrollPosition("projects");
     }
   };
@@ -115,7 +115,7 @@ function App() {
         <AboutMe ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
       </div>
       <div ref={skills}>
-        <Skills SkillsAnimateState={SkillsAnimateState} />
+        <Skills ScrollPosition={ScrollPosition} SkillsAnimateState={SkillsAnimateState} />
       </div>
       <div ref={projects}>
         <Projects ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />

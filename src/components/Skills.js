@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Row, Card, Progress, Divider } from 'antd';
 import { Motion, spring } from 'react-motion';
 import { Title } from './AboutMe';
@@ -15,12 +15,26 @@ import styled from 'styled-components';
 function Skills(props) {
   
   const { Meta } = Card;
+  const [ComponentLoadedState, setComponentLoadedState] = useState(false);
+
+  useEffect(() => {
+    if(props.ScrollPosition === "skills") setComponentLoadedState(true);
+  }, [props.ScrollPosition]);
 
   return (
-    <div style={{ width: '80%', margin: '0 auto' }}>
-      <Title>
-        Skills
-      </Title>
+    <SkillsWrapper>
+      <Motion
+        style={{ marginLeft: spring(ComponentLoadedState ? 0 : -2000, { stiffness: 100 } ), color: spring(ComponentLoadedState ? 1 : 0, { stiffness: 50 }) }}>
+        {(val) =>
+          <Title 
+          style={{
+            color: `rgba(0, 0, 0, ${val.color})`,
+            marginLeft: `${val.marginLeft}px`
+          }}>
+            Skills
+          </Title>
+        }
+      </Motion>
       <Divider style={{ backgroundColor: '#ababab' }} />
       <Motion style={{ 
         htmlPercentage: spring(props.SkillsAnimateState ? 90 : 0, { stiffness: 70, demping: 0 } ),
@@ -165,8 +179,14 @@ function Skills(props) {
           </Row>
         }
       </Motion>
-    </div>
+    </SkillsWrapper>
   )
 }
+
+const SkillsWrapper = styled.div`
+  width: 80%;
+  padding-top: 50px;
+  margin: 0 auto;
+`;
 
 export default Skills

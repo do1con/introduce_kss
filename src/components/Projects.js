@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { Title } from './AboutMe';
 import { Divider, Carousel } from 'antd';
+import MovieDot from '../media/movie-dot.png';
+import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 
 function Projects(props) {
 
@@ -37,20 +39,41 @@ function Projects(props) {
         </Motion>
         <Divider style={{ backgroundColor: '#ababab' }} />
       </ProjectsWrapper>
-      <Carousel>
-        <Project>
-          <h3 style={contentStyle}>1</h3>
-        </Project>
-        <Project>
-          <h3 style={contentStyle}>2</h3>
-        </Project>
-        <Project>
-          <h3 style={contentStyle}>3</h3>
-        </Project>
-        <Project>
-          <h3 style={contentStyle}>4</h3>
-        </Project>
-      </Carousel>
+      <div style={{ position: 'relative' }}>
+        <Carousel>
+          <Project>
+            <div style={{ 
+              backgroundImage: `url(${MovieDot})`,
+              width: '100%',
+              height: '100%',
+              backgroundSize: 'cover'
+            }}>
+              <h3>hihi</h3>
+            </div>
+          </Project>
+          <Project>
+            <h3 style={contentStyle}>2</h3>
+          </Project>
+          <Project>
+            <h3 style={contentStyle}>3</h3>
+          </Project>
+          <Project>
+            <h3 style={contentStyle}>4</h3>
+          </Project>
+        </Carousel>
+        <RightOutlined style={{
+          fontSize: '3rem',
+          position: 'absolute',
+          right: '50px', top: '50%',
+          transform: 'translate(-50%,-50%)'
+        }} />
+        <LeftOutlined style={{
+          fontSize: '3rem',
+          position: 'absolute',
+          left: '50px', top: '50%',
+          transform: 'translate(-50%,-50%)'
+        }} />
+      </div>
     </div>
   )
 }
@@ -64,6 +87,7 @@ const ProjectsWrapper = styled.div`
 const Project = styled.div`
   width: 100%;
   height: 400px;
+  background-color: rgba(0,0,0,0.4);
 `;
 
 export default Projects
