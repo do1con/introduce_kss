@@ -12,7 +12,6 @@ function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
   const [BrowserWidth, setBrowserWidth] = useState(window.innerWidth);
   const [HeaderPosition, setHeaderPosition] = useState(false);
-  const [ResponsiveState, setResponsiveState] = useState(false);
   const [ScrollPosition, setScrollPosition] = useState("home");
   const [SkillsAnimateState, setSkillsAnimateState] = useState(false);
   const home = useRef();
@@ -22,11 +21,9 @@ function App() {
 
   const onResizeBrowser = () => {
     if(window.innerWidth <= 800) {
-      setResponsiveState(true);
       setBrowserHeight(window.innerHeight);
       setBrowserWidth(window.innerWidth);
     } else {
-      setResponsiveState(false);
       setBrowserHeight(window.innerHeight);
       setBrowserWidth(window.innerWidth);
     }
@@ -51,14 +48,14 @@ function App() {
     if(window.scrollY >= 0 && window.scrollY <= aboutMeOffsetTop - (aboutMeOffsetTop - aboutMeOffsetTop/2)){
       setScrollPosition("home");
     }
-    if(window.scrollY >= aboutMeOffsetTop - 100){
+    if(window.scrollY >= aboutMeOffsetTop - 150){
       setScrollPosition("aboutMe");
     }
-    if(window.scrollY >= skillsOffsetTop - 100) {
+    if(window.scrollY >= skillsOffsetTop - 150) {
       setSkillsAnimateState(true);
       setScrollPosition("skills");
     }
-    if(window.scrollY >= projectsOffsetTop - 100) {
+    if(window.scrollY >= projectsOffsetTop - 150) {
       setScrollPosition("projects");
     }
   };
@@ -109,7 +106,7 @@ function App() {
             eraseDelay={650}
           />
         </div>
-        <Header HeaderPosition={HeaderPosition} ResponsiveState={ResponsiveState} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
+        <Header HeaderPosition={HeaderPosition} ScrollPosition={ScrollPosition} onClickMenu={onClickMenu} />
       </MainImageBlock>
       <div ref={aboutMe}>
         <AboutMe ScrollPosition={ScrollPosition} BrowserWidth={BrowserWidth} />
