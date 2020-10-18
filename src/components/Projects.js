@@ -5,7 +5,7 @@ import { Title } from "./AboutMe";
 import { Divider, Col, Row, Card, Tag } from "antd";
 import MovieDot from "../media/movie-dot.png";
 import I_Talented from "../media/i-talented.png";
-import { isMobile, isTablet } from "react-device-detect";
+import { isMobile, isTablet, isIE } from "react-device-detect";
 
 function Projects(props) {
   const [ComponentLoadedState, setComponentLoadedState] = useState(false);
@@ -35,25 +35,36 @@ function Projects(props) {
   return (
     <div>
       <ProjectsWrapper>
-        <Motion
-          style={{
-            marginLeft: spring(ComponentLoadedState ? 0 : -2000, {
-              stiffness: 100,
-            }),
-            color: spring(ComponentLoadedState ? 1 : 0, { stiffness: 50 }),
-          }}
-        >
-          {(val) => (
-            <Title
-              style={{
-                color: `rgba(0, 0, 0, ${val.color})`,
-                marginLeft: `${val.marginLeft}px`,
-              }}
-            >
-              Projects
-            </Title>
-          )}
-        </Motion>
+        {isIE ? (
+          <Title
+            style={{
+              color: `rgba(0, 0, 0)`,
+              marginLeft: `0px`,
+            }}
+          >
+            Projects
+          </Title>
+        ) : (
+          <Motion
+            style={{
+              marginLeft: spring(ComponentLoadedState ? 0 : -2000, {
+                stiffness: 100,
+              }),
+              color: spring(ComponentLoadedState ? 1 : 0, { stiffness: 50 }),
+            }}
+          >
+            {(val) => (
+              <Title
+                style={{
+                  color: `rgba(0, 0, 0, ${val.color})`,
+                  marginLeft: `${val.marginLeft}px`,
+                }}
+              >
+                Projects
+              </Title>
+            )}
+          </Motion>
+        )}
         <Divider style={{ backgroundColor: "#ababab" }} />
         <Row style={{ marginTop: "50px" }} justify="center" gutter={[16, 16]}>
           <Col>

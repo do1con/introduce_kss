@@ -1,35 +1,90 @@
-import React from 'react'
+import React from "react";
 import styled, { css } from "styled-components";
-import { Motion, spring } from 'react-motion';
+import { Motion, spring } from "react-motion";
 import me from "../media/me.png";
-import { MailTwoTone, PhoneTwoTone, DatabaseTwoTone } from '@ant-design/icons';
-import { Divider } from 'antd';
+import { MailTwoTone, PhoneTwoTone, DatabaseTwoTone } from "@ant-design/icons";
+import { Divider } from "antd";
+import { isIE } from "react-device-detect";
 
 function Profile(props) {
   return (
-    <Motion style={{ marginTop: spring(props.ComponentLoadedState ? 0 : -100, { stiffness: 70 } ), opacity : spring(props.ComponentLoadedState ? 1 : 0, { stiffness: 70 } ) }}>
-      {(val) =>
-        <div style={{ width: '100%', height: '100%', marginTop: `${val.marginTop}px`, opacity: `${val.opacity}` }}>
+    <div>
+      {isIE ? (
+        <div style={{ width: "100%", height: "100%", marginTop: `0px` }}>
           <MyPicture src={me} alt="me" BrowserWidth={props.BrowserWidth} />
           <ProfileWrapper>
-            <p style={{ wordBreak: 'keep-all' }}><ProfileHead>김성수 </ProfileHead> SeongSoo Kim<br/>Web Front-End Developer</p>
-            <Divider style={{ backgroundColor: '#ababab' }} />
-            <p style={{ wordBreak: 'break-all' }}><MailTwoTone /> kss7547@gmail.com</p>
-            <p style={{ wordBreak: 'break-all' }}><PhoneTwoTone /> 010-9902-4851</p>
-            <p style={{ wordBreak: 'break-all' }}><DatabaseTwoTone /> https://github.com/do1con</p>
+            <p style={{ wordBreak: "keep-all" }}>
+              <ProfileHead>김성수 </ProfileHead> SeongSoo Kim
+              <br />
+              Web Front-End Developer
+            </p>
+            <Divider style={{ backgroundColor: "#ababab" }} />
+            <p style={{ wordBreak: "break-all" }}>
+              <MailTwoTone /> kss7547@gmail.com
+            </p>
+            <p style={{ wordBreak: "break-all" }}>
+              <PhoneTwoTone /> 010-9902-4851
+            </p>
+            <p style={{ wordBreak: "break-all" }}>
+              <DatabaseTwoTone /> https://github.com/do1con
+            </p>
           </ProfileWrapper>
         </div>
-      }
-    </Motion>
-  )
+      ) : (
+        <Motion
+          style={{
+            marginTop: spring(props.ComponentLoadedState ? 0 : -100, {
+              stiffness: 70,
+            }),
+            opacity: spring(props.ComponentLoadedState ? 1 : 0, {
+              stiffness: 70,
+            }),
+          }}
+        >
+          {(val) => (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                marginTop: `${val.marginTop}px`,
+                opacity: `${val.opacity}`,
+              }}
+            >
+              <MyPicture src={me} alt="me" BrowserWidth={props.BrowserWidth} />
+              <ProfileWrapper>
+                <p style={{ wordBreak: "keep-all" }}>
+                  <ProfileHead>김성수 </ProfileHead> SeongSoo Kim
+                  <br />
+                  Web Front-End Developer
+                </p>
+                <Divider style={{ backgroundColor: "#ababab" }} />
+                <p style={{ wordBreak: "break-all" }}>
+                  <MailTwoTone /> kss7547@gmail.com
+                </p>
+                <p style={{ wordBreak: "break-all" }}>
+                  <PhoneTwoTone /> 010-9902-4851
+                </p>
+                <p style={{ wordBreak: "break-all" }}>
+                  <DatabaseTwoTone /> https://github.com/do1con
+                </p>
+              </ProfileWrapper>
+            </div>
+          )}
+        </Motion>
+      )}
+    </div>
+  );
 }
 
 const MyPicture = styled.img`
-  ${(props) => 
+  ${(props) =>
     props.BrowserWidth >= 992
-    ?
-      css`height: 150px;` : css`height: 200px;`
-  }
+      ? css`
+          height: 150px;
+        `
+      : css`
+          height: 200px;
+        `}
   margin: 0 auto;
   border-radius: 50% 50% / 50% 50%;
   display: block;
@@ -45,4 +100,4 @@ const ProfileHead = styled.span`
   color: #1b242f;
 `;
 
-export default Profile
+export default Profile;

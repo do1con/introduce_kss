@@ -1,43 +1,67 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Motion, spring } from 'react-motion';
+import { Motion, spring } from "react-motion";
 import { Row, Col, Divider } from "antd";
-import Profile from './Profile'
-import Career from './Career'
+import Profile from "./Profile";
+import Career from "./Career";
+import { isIE } from "react-device-detect";
 
 function AboutMe(props) {
-  
   const [ComponentLoadedState, setComponentLoadedState] = useState(false);
 
   useEffect(() => {
-    if(props.ScrollPosition === "aboutMe") setComponentLoadedState(true);
+    if (props.ScrollPosition === "aboutMe") setComponentLoadedState(true);
   }, [props.ScrollPosition]);
 
   return (
     <AboutMeWrapper>
-       <Motion
-       style={{ marginLeft: spring(ComponentLoadedState ? 0 : -2000, { stiffness: 100 } ), color: spring(ComponentLoadedState ? 1 : 0, { stiffness: 50 }) }}>
-       {(val) =>
-          <Title 
+      {isIE ? (
+        <Title
           style={{
-            color: `rgba(0, 0, 0, ${val.color})`,
-            marginLeft: `${val.marginLeft}px`
-          }}>
-            About Me
-          </Title>
-        }
-      </Motion>
-      <Divider style={{ backgroundColor: '#ababab' }} />
+            color: `rgba(0, 0, 0)`,
+            marginLeft: `0px`,
+          }}
+        >
+          About Me
+        </Title>
+      ) : (
+        <Motion
+          style={{
+            marginLeft: spring(ComponentLoadedState ? 0 : -2000, {
+              stiffness: 100,
+            }),
+            color: spring(ComponentLoadedState ? 1 : 0, { stiffness: 50 }),
+          }}
+        >
+          {(val) => (
+            <Title
+              style={{
+                color: `rgba(0, 0, 0, ${val.color})`,
+                marginLeft: `${val.marginLeft}px`,
+              }}
+            >
+              About Me
+            </Title>
+          )}
+        </Motion>
+      )}
+      <Divider style={{ backgroundColor: "#ababab" }} />
       <Row style={{ marginTop: "50px" }} justify="center">
         <Col xs={24} sm={24} md={24} lg={5} xl={6}>
-          <Profile BrowserWidth={props.BrowserWidth} ComponentLoadedState={ComponentLoadedState} />
+          <Profile
+            BrowserWidth={props.BrowserWidth}
+            ComponentLoadedState={ComponentLoadedState}
+          />
         </Col>
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-          <Career BrowserWidth={props.BrowserWidth} ComponentLoadedState={ComponentLoadedState} />
+          <Career
+            BrowserWidth={props.BrowserWidth}
+            ComponentLoadedState={ComponentLoadedState}
+          />
         </Col>
       </Row>
     </AboutMeWrapper>
-  )
+  );
 }
 
 const AboutMeWrapper = styled.div`
@@ -53,4 +77,4 @@ export const Title = styled.h2`
   margin-top: 25px;
 `;
 
-export default AboutMe
+export default AboutMe;

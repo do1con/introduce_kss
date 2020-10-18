@@ -2,7 +2,7 @@
   "name": "introduce_kss",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://do1con.github.io/introduce_kss/",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "@testing-library/jest-dom": "^4.2.4",
