@@ -6,6 +6,7 @@ import ReactTypingEffect from "react-typing-effect";
 import AboutMe from "./components/AboutMe";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import "./reset.css";
 import "antd/dist/antd.css";
 
 function App() {
