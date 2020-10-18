@@ -46,7 +46,7 @@ function AboutMe(props) {
         </Motion>
       )}
       <Divider style={{ backgroundColor: "#ababab" }} />
-      <Row style={{ marginTop: "50px" }} justify="center">
+      <Row style={{ marginTop: "50px" }} justify="center" gutter={[10, 10]}>
         <Col xs={24} sm={24} md={24} lg={5} xl={6}>
           <Profile
             BrowserWidth={props.BrowserWidth}
