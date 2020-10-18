@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import "./reset.css";
 import "antd/dist/antd.css";
+import { InfoCircleTwoTone } from "@ant-design/icons";
 
 function App() {
   const [BrowserHeight, setBrowserHeight] = useState(window.innerHeight);
@@ -86,10 +87,18 @@ function App() {
   return (
     <div className="App">
       <MainImageBlock ref={home}>
+        <div style={{ position: "absolute", left: "20px", top: "20px" }}>
+          <p style={{ fontSize: "10px" }}>
+            <InfoCircleTwoTone /> 본 페이지는 React로 제작되었습니다.
+            <br />
+            <InfoCircleTwoTone /> 가급적 Chrome, Firefox, Safari 등의 브라우저를
+            사용하시길 권장드립니다.
+          </p>
+        </div>
         <div
           style={{
             width: "80%",
-            height: "100%",
+            height: "100vh",
             margin: "100px auto 0",
             display: "table",
             overflow: "hidden",
@@ -106,12 +115,12 @@ function App() {
               padding: "10px 0 10px 0",
               wordBreak: "keep-all",
               overflowY: "hidden",
-              fontFamily: "sans-serif",
+              fontFamily: "Black Han Sans, sans-serif",
               fontWeight: "100",
             }}
-            speed={100}
+            speed={80}
             eraseSpeed={70}
-            eraseDelay={650}
+            eraseDelay={450}
           />
         </div>
         <Header
