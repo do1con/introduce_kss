@@ -1,10 +1,7 @@
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
-import { polyfill } from "es6-promise";
-
-polyfill();
 
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -2,7 +2,7 @@
   "name": "introduce_kss",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://do1con.github.io/introduce_kss/",
+  "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -42,8 +42,8 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version",
-      "ie 11",
-      "not dead"
+      "last 1 ie version",
+      "ie 11"
     ]
   }
 }
