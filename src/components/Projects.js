@@ -106,11 +106,20 @@ function Projects(props) {
               <Divider style={{ backgroundColor: "#ababab" }} />
               <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
                 <a
+                  href="http://moviedot.tk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </a>
+              </Tag>
+              <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
+                <a
                   href="http://3.35.132.204/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Link (현재 무료 호스팅을 이용중이라 서버가 down되는 일이 잦습니다. 빨리 해결하겠습니다.)
+                  Link2 (무료 도메인 down시 이용 부탁드립니다.)
                 </a>
               </Tag>
               <Tag color="#f50" style={{ marginTop: "10px" }}>
