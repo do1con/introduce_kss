@@ -5,6 +5,7 @@ import { Title } from "./AboutMe";
 import { Divider, Col, Row, Card, Tag } from "antd";
 import MovieDot from "../media/movie-dot.png";
 import I_Talented from "../media/i-talented.png";
+import EPeople from "../media/ePeople.png";
 import { isMobile, isTablet, isIE } from "react-device-detect";
 
 function Projects(props) {
@@ -14,6 +15,7 @@ function Projects(props) {
   const { Meta } = Card;
   const movieDotImage = useRef();
   const iTalentedImage = useRef();
+  const ePeopleImage = useRef();
 
   const MouseOver = (target) => {
     setHover(target);
@@ -99,11 +101,17 @@ function Projects(props) {
             >
               <Meta
                 title="Movie Dot"
-                description="영화정보를 제공하는 웹 서비스 입니다. 영화 정보는 TMDb에서 제공하는 API를 이용하였습니다. 회원가입, 로그인, 좋아요 정보를 저장하는 기능을 가지고 있습니다."
+                description="영화정보를 제공하는 웹 서비스 입니다. 영화 정보는 TMDb에서 제공하는 API를 이용하였습니다. 회원가입, 로그인, 좋아요 정보를 저장하는 기능을 가지고 있습니다. AWS EC2로 배포하였습니다."
               />
               <Divider style={{ backgroundColor: "#ababab" }} />
               <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
-                Link
+                <a
+                  href="http://moviedot.tk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </a>
               </Tag>
               <Tag color="#f50" style={{ marginTop: "10px" }}>
                 <a
@@ -117,8 +125,7 @@ function Projects(props) {
               <Tag style={{ marginTop: "10px" }}>React</Tag>
               <Tag style={{ marginTop: "10px" }}>Express</Tag>
               <Tag style={{ marginTop: "10px" }}>Mongo DB</Tag>
-              <Tag style={{ marginTop: "10px" }}>Ant Design</Tag>
-              <Tag style={{ marginTop: "10px" }}>반응형</Tag>
+              <Tag style={{ marginTop: "10px" }}>AWS EC2</Tag>
             </Card>
           </Col>
           <Col>
@@ -184,6 +191,73 @@ function Projects(props) {
                 </a>
               </Tag>
               <Tag style={{ marginTop: "10px" }}>Javascript</Tag>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              style={{
+                width: "100%",
+                fontSize: "0.8rem",
+                cursor: "default",
+                overflow: "hidden",
+              }}
+              cover={
+                <div
+                  style={{
+                    width: "100%",
+                    height: "250px",
+                    overflowY: ResponsiveState ? "scroll" : "hidden",
+                    overflowX: "hidden",
+                  }}
+                >
+                  <ProjectImage
+                    alt="ePeople"
+                    src={EPeople}
+                    onMouseOver={() => MouseOver("ePeople")}
+                    onMouseLeave={MouseLeave}
+                    ref={ePeopleImage}
+                    Hovered={Hover}
+                    DomSelfRef={ePeopleImage}
+                    DomKey="ePeople"
+                  />
+                </div>
+              }
+            >
+              <Meta
+                title="국민신문고"
+                description="HTML, CSS, Javascript를 공부하며 처음 만든 웹 페이지입니다. 국민신문고를 보고 그대로 카피했습니다. (현재는 디자인이 변경되었습니다.) IE8까지 지원하도록 만들어졌습니다."
+              />
+              <Divider style={{ backgroundColor: "#ababab" }} />
+              <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://do1con.github.io/ePeople/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ver2 Link (수정 버전)
+                </a>
+              </Tag>
+              <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://do1con.github.io/ePeople/ver1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ver1 Link (원본 버전)
+                </a>
+              </Tag>
+              <Tag color="#f50" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://github.com/do1con/ePeople"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Git Repository
+                </a>
+              </Tag>
+              <Tag style={{ marginTop: "10px" }}>jQuery</Tag>
+              <Tag style={{ marginTop: "10px" }}>IE8</Tag>
+              <Tag style={{ marginTop: "10px" }}>CSS HACK</Tag>
             </Card>
           </Col>
         </Row>
