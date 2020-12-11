@@ -2,10 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import { Motion, spring } from "react-motion";
 import { Title } from "./AboutMe";
-import { Divider, Col, Row, Card, Tag } from "antd";
+import { Divider, Col, Row, Card, Tag, Button } from "antd";
 import MovieDot from "../media/movie-dot.png";
 import I_Talented from "../media/i-talented.png";
 import EPeople from "../media/ePeople.png";
+import totalCyphers from "../media/total-cyphers.gif";
 import { isMobile, isTablet, isIE } from "react-device-detect";
 
 function Projects(props) {
@@ -13,6 +14,7 @@ function Projects(props) {
   const [Hover, setHover] = useState("");
   const [ResponsiveState, setResponsiveState] = useState(false);
   const { Meta } = Card;
+  const totalCyphersImage = useRef();
   const movieDotImage = useRef();
   const iTalentedImage = useRef();
   const ePeopleImage = useRef();
@@ -81,11 +83,100 @@ function Projects(props) {
                 <div
                   style={{
                     width: "100%",
+                    height: "300px",
+                    overflowY: ResponsiveState ? "scroll" : "hidden",
+                    overflowX: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <Button
+                    style={{ position: "absolute", top: "10px", left: "10px" }}
+                    type="primary"
+                    onClick={() => {
+                      window.open(totalCyphersImage.current.src);
+                    }}
+                  >
+                    이미지 크게 보기
+                  </Button>
+                  <ProjectImage
+                    alt="total cyphers"
+                    src={totalCyphers}
+                    onMouseOver={() => MouseOver("total cyphers")}
+                    onMouseLeave={MouseLeave}
+                    ref={totalCyphersImage}
+                    Hovered={Hover}
+                    DomSelfRef={totalCyphersImage}
+                    DomKey="total cyphers"
+                  />
+                </div>
+              }
+            >
+              <Meta
+                title="Total Cyphers"
+                description="넥슨에서 서비스하는 사이퍼즈라는 온라인게임의 전적검색 서비스입니다. 닉네임을 검색하면 유저의 최근 전적, 랭크 등을 확인할 수 있습니다. 네오플에서 제공하는 neople OpenAPI를 이용하였습니다. Heroku를 통해 배포하였습니다."
+              />
+              <Divider style={{ backgroundColor: "#ababab" }} />
+              <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://total-cyphers.herokuapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </a>
+              </Tag>
+              <Tag color="#f50" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://github.com/do1con/TotalCyphers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Git Repository
+                </a>
+              </Tag>
+              <Tag color="#f9b800" style={{ marginTop: "10px" }}>
+                <a
+                  href="https://developers.neople.co.kr/main"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Neople OpenAPI
+                </a>
+              </Tag>
+              <Tag style={{ marginTop: "10px" }}>React</Tag>
+              <Tag style={{ marginTop: "10px" }}>Redux &amp; Redux Saga</Tag>
+              <Tag style={{ marginTop: "10px" }}>Express</Tag>
+              <Tag style={{ marginTop: "10px" }}>Typescript</Tag>
+              <Tag style={{ marginTop: "10px" }}>반응형</Tag>
+            </Card>
+          </Col>
+          <Col>
+            <Card
+              style={{
+                width: "100%",
+                fontSize: "0.8rem",
+                cursor: "default",
+                overflow: "hidden",
+              }}
+              cover={
+                <div
+                  style={{
+                    width: "100%",
                     height: "250px",
                     overflowY: ResponsiveState ? "scroll" : "hidden",
                     overflowX: "hidden",
+                    position: "relative",
                   }}
                 >
+                  <Button
+                    style={{ position: "absolute", top: "10px", left: "10px" }}
+                    type="primary"
+                    onClick={() => {
+                      window.open(movieDotImage.current.src);
+                    }}
+                  >
+                    이미지 크게 보기
+                  </Button>
                   <ProjectImage
                     alt="movie dot"
                     src={MovieDot}
@@ -152,8 +243,18 @@ function Projects(props) {
                     height: "250px",
                     overflowY: ResponsiveState ? "scroll" : "hidden",
                     overflowX: "hidden",
+                    position: "relative",
                   }}
                 >
+                  <Button
+                    style={{ position: "absolute", top: "10px", left: "10px" }}
+                    type="primary"
+                    onClick={() => {
+                      window.open(iTalentedImage.current.src);
+                    }}
+                  >
+                    이미지 크게 보기
+                  </Button>
                   <ProjectImage
                     alt="i talented"
                     src={I_Talented}
@@ -217,8 +318,18 @@ function Projects(props) {
                     height: "250px",
                     overflowY: ResponsiveState ? "scroll" : "hidden",
                     overflowX: "hidden",
+                    position: "relative",
                   }}
                 >
+                  <Button
+                    style={{ position: "absolute", top: "10px", left: "10px" }}
+                    type="primary"
+                    onClick={() => {
+                      window.open(ePeopleImage.current.src);
+                    }}
+                  >
+                    이미지 크게 보기
+                  </Button>
                   <ProjectImage
                     alt="ePeople"
                     src={EPeople}
