@@ -197,7 +197,7 @@ function Projects(props) {
               <Divider style={{ backgroundColor: "#ababab" }} />
               <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
                 <a
-                  href="http://moviedot.tk/"
+                  href="http://moviedot.kro.kr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -206,11 +206,11 @@ function Projects(props) {
               </Tag>
               <Tag color="#2db7f5" style={{ marginTop: "10px" }}>
                 <a
-                  href="http://3.35.132.204/"
+                  href="http://3.35.65.167/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Link2 (무료 도메인 down시 이용 부탁드립니다.)
+                  Link2
                 </a>
               </Tag>
               <Tag color="#f50" style={{ marginTop: "10px" }}>
