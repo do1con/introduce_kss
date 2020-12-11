@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eee4843cd4594aa00297740eb5c79fa8",
+    "revision": "793841960632b02ad0cec8f62e1a139c",
     "url": "/introduce_kss/index.html"
   },
   {
-    "revision": "725c550ccc334e1adc6e",
+    "revision": "4a1f4617e923c824c28e",
     "url": "/introduce_kss/static/css/2.220ccb42.chunk.css"
   },
   {
-    "revision": "77bb740e7f96e65df996",
+    "revision": "37ebf7272b4800097182",
     "url": "/introduce_kss/static/css/main.ae937cf4.chunk.css"
   },
   {
-    "revision": "725c550ccc334e1adc6e",
-    "url": "/introduce_kss/static/js/2.e88e6bee.chunk.js"
+    "revision": "4a1f4617e923c824c28e",
+    "url": "/introduce_kss/static/js/2.d33a3c75.chunk.js"
   },
   {
-    "revision": "77bb740e7f96e65df996",
-    "url": "/introduce_kss/static/js/main.5ef86772.chunk.js"
+    "revision": "37ebf7272b4800097182",
+    "url": "/introduce_kss/static/js/main.6762b64f.chunk.js"
   },
   {
     "revision": "1ae4b4306eb20042a73c",
@@ -74,5 +74,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d89aa96ee37364816f7ba286343840ea",
     "url": "/introduce_kss/static/media/redux.d89aa96e.png"
+  },
+  {
+    "revision": "bb0a72fb260045b5f8a6a579daa664b6",
+    "url": "/introduce_kss/static/media/total-cyphers.bb0a72fb.gif"
   }
 ]);

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/introduce_kss/static/css/main.ae937cf4.chunk.css",
-    "main.js": "/introduce_kss/static/js/main.5ef86772.chunk.js",
-    "main.js.map": "/introduce_kss/static/js/main.5ef86772.chunk.js.map",
+    "main.js": "/introduce_kss/static/js/main.6762b64f.chunk.js",
+    "main.js.map": "/introduce_kss/static/js/main.6762b64f.chunk.js.map",
     "runtime-main.js": "/introduce_kss/static/js/runtime-main.f6c22144.js",
     "runtime-main.js.map": "/introduce_kss/static/js/runtime-main.f6c22144.js.map",
     "static/css/2.220ccb42.chunk.css": "/introduce_kss/static/css/2.220ccb42.chunk.css",
-    "static/js/2.e88e6bee.chunk.js": "/introduce_kss/static/js/2.e88e6bee.chunk.js",
-    "static/js/2.e88e6bee.chunk.js.map": "/introduce_kss/static/js/2.e88e6bee.chunk.js.map",
+    "static/js/2.d33a3c75.chunk.js": "/introduce_kss/static/js/2.d33a3c75.chunk.js",
+    "static/js/2.d33a3c75.chunk.js.map": "/introduce_kss/static/js/2.d33a3c75.chunk.js.map",
     "index.html": "/introduce_kss/index.html",
-    "precache-manifest.df9b568d77e7f657cf5fb2d87fe8ca12.js": "/introduce_kss/precache-manifest.df9b568d77e7f657cf5fb2d87fe8ca12.js",
+    "precache-manifest.7acc806da8132ec4d888963cf5b88a24.js": "/introduce_kss/precache-manifest.7acc806da8132ec4d888963cf5b88a24.js",
     "service-worker.js": "/introduce_kss/service-worker.js",
     "static/css/2.220ccb42.chunk.css.map": "/introduce_kss/static/css/2.220ccb42.chunk.css.map",
     "static/css/main.ae937cf4.chunk.css.map": "/introduce_kss/static/css/main.ae937cf4.chunk.css.map",
@@ -25,13 +25,14 @@
     "static/media/me.png": "/introduce_kss/static/media/me.2950f293.png",
     "static/media/movie-dot.png": "/introduce_kss/static/media/movie-dot.5477aba7.png",
     "static/media/react.png": "/introduce_kss/static/media/react.6bbb347f.png",
-    "static/media/redux.png": "/introduce_kss/static/media/redux.d89aa96e.png"
+    "static/media/redux.png": "/introduce_kss/static/media/redux.d89aa96e.png",
+    "static/media/total-cyphers.gif": "/introduce_kss/static/media/total-cyphers.bb0a72fb.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.f6c22144.js",
     "static/css/2.220ccb42.chunk.css",
-    "static/js/2.e88e6bee.chunk.js",
+    "static/js/2.d33a3c75.chunk.js",
     "static/css/main.ae937cf4.chunk.css",
-    "static/js/main.5ef86772.chunk.js"
+    "static/js/main.6762b64f.chunk.js"
   ]
 }
